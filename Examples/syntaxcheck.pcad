@@ -1,0 +1,161 @@
+/* test for correct grammar parsing */
+
+
+/* comments first */
+// comments can be either of these styles
+1/* block comments can be embedded */+/* even between tokens */2/* like this */;
+1+2;// line comments go to end of line
+
+// number literals
+9999;
+99.99;
+Infinity;
+NaN;
+
+// string literals
+'string';
+'escape\'single\'quotes';
+'escape\\back\\slashes';
+
+// boolean literals
+true; false;
+
+// special keyword values
+undefined; // value for things that SHOULDN'T have a value but are asked for one
+null; // value for things that SHOULD have a value but it's not there
+
+// list literals contain values, or expressions that evaluate to them
+[1,'2',Infinity,true,1+1];
+[foo=23,bar=42+13]; // named lists have key=value syntax
+[1:foo]; // range lists give a starting value, and a max value
+[1:stepsize:foo]; // with an optional step value that gets added until it reaches max
+
+
+// a statement can be:
+23; // any expression with semicolon
+foo=42; // an assignment w/ semi
+function foo(x){x+23;} // a function definition without semicolon
+if(a){foo(a);} // a conditional w/o semi
+loop(i=[1:10]){foo(i);} // a loop w/o semi
+
+// assignments are any valid name, an equals sign, and any expression
+foo1 = 23;
+_bar = 'test';
+
+// function definitions require parens around the arguments, and a code block
+function foo(x){
+    a=x^2;
+    bar(a-x);
+}
+function foo(x=0){bar(x+1);} // default value
+function foo(r, x=0, y=0){} // arguments without default values must come first
+
+// conditionals are if statements, optional elseif statements, optional else
+if(a) {
+    foo(z);
+} elseif(b) {
+    foo(y);
+} elseif(c){
+    foo(x);
+} else {
+    foo(x,y,z);
+}
+// the code block can be replaced by a single statement
+if(a) foo(z);
+elseif(b) foo(y);
+else foo(x,y);
+// parens are optional if using code blocks
+if a {foo(z);}
+elseif b {foo(y);}
+
+// function calls require argument list and/or a code block
+foo(2,9);
+foo{
+    bar();
+    baz();
+}
+foo(); // no arguments and no block, parens required
+// they also may be called with named arguments, or a mix
+bar(10, x=5, y=5); // unnamed arguments must come first
+
+/*  expressions can be nested to any level.
+    operators have precedence rules, operators with the same precedence are
+    evaluated left to right. Operators are (in prcedence ordering):
+    -,!: (prefix unary form) negative, not
+    ^,\,|: to the power of, root, log
+    *,/,%: times, divided by, modulo
+    +,-: plus, minus
+    &&,||,^^: boolean and, boolean or, boolean xor
+    <,<=,==,!=,>=,>: equality tests
+
+    Use parens to group expressions that should be evaluated first:
+    3*(1+1) == 6
+*/
+c = (a^2+b^2)\2; // pythagorean theorem, \2 is square root
+a = pi*r^2; // area of circle
+len = ((x1-x2)^2+(y1-y2))\2; // length of a line
+
+a=b^c; // b to the power of c
+b=a\c; // a root c
+c=a|b; // a log b (log base b of a)
+
+v = 12+11 == 23; // v is true
+(23>12)&&(42>23); // true
+true && false; // false
+true && true; //true
+true ^^ false; // true
+
+
+
+
+
+/*
+dia = 20+a; // notes
+count = 12*2;
+//mix in some booleans and other special values
+plain_list = [1,2,'one', 'two', true  , false, undefined, null, dia*count ];
+// throw a nested list in this one, maybe some weird numbers
+named_list = [a=1, b = 2, c=2*3,d='it\'s', e=[1,[]], f=[-Infinity, NaN] ];
+range_list = [0:9];
+step_range = [0:10:200];
+
+// operator precedence test
+a=1+2-1+5;
+b=1+2*3^4;
+c = (-3^(1+2)>10)&&(7-5!=11);
+*/
+
+/*  a function:
+    make a list from two/three numbers
+*/
+function point(x,y,z=0, happy=true){
+    [x,y,z];
+}
+function a(){
+    if true {runthis();}
+}
+function b(){
+    if(true) runthis();
+}
+function c(){
+    if true {runthis();}
+    else {runthat();}
+}
+
+function d(){
+    if(true)runthis();
+    else runthat();
+}
+function e(){
+    loop(i=[0,6,3]){circle(r=i);}
+    loop i=[0,6,3] {circle(r=i);}
+    loop(i=[0,6,3]) circle(r=i);
+}
+
+loop a=[2:3:100] {bloop(a);}
+
+// test the function
+point(2,3);
+point(x=1,y=2);
+point(2,3,z=null){23+42;}
+

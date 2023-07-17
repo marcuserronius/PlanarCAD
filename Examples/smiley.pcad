@@ -1,0 +1,12 @@
+union(){
+	circle(r=20);
+	rotate(45) intersection(){
+		rect(h=20,w=20);
+		difference(){
+			circle(r=18);
+			circle(r=16);
+		}
+	}
+	translate([-5,-10]) scale([1,2]) circle(r=1);
+	translate([5,-10]) scale([1,2]) circle(r=1);
+}

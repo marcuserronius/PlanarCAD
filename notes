@@ -1,0 +1,64 @@
+svg elements:
+circle
+elipse
+line
+path
+polygon (connected ends)
+polyline (disconnected ends)
+rect
+text (one line)
+textpath (text with path reference)
+tspan (like html span; for styling subsegment of text element)
+
+
+- defs (automatic? not used by us?)
+- use (reference pre-defined shape, only used by us when reading in svg)
+
+Also, shape modifying tools like:
+union
+difference
+intersection
+xor (for completeness)
+
+style (for styling the resulting path)
+offset (offset the line, -1 is smaller, 1 is larger)
+round? (round sharp corners to a radius) (maybe version 2)
+simplify
+translate, rotate, scale, matrix
+
+flow control and conditionals:
+for (might execute out of order for speed)
+if...elseif...else
+-while (nope, no ordered loops)
+
+literals:
+numbers (42, 42.3, -4.23, -42.3e5, -4.23e-12, Infinity, -Infinity, NaN)
+strings ('abc123', 'abc\'123')
+lists ([42,'abc'], [23:42], [23:3:42])
+boolean (true,false)
+value (undef, null)
+
+
+
+operator symbols:
++-*/ plus, minus, multiply, divide
+% modulo
+^ exponent
+< <= == != >= > comparisons
+&& || ! and, or, not
+
+math:
+abs, sign
+sin, cos, tan
+asin, acos, atan, atan2
+floor, round, ceil
+log, pow, sqrt, root
+min, max
+rand
+
+math constants:
+e, pi, phi
+null, infinity, nan
+
+other constants:
+engine_version, engine_info
