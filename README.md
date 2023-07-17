@@ -2,7 +2,8 @@
 Simple web-based drawing for 2D design
 
 ## Why?
-I searched high and low for a simple 2D drawing app for designing for a laser cutter. I wanted precise layouts, boolean operations on paths, and parametric designs. Since I couldn't find one I liked, I decided to try to make my own. My intended recipe here is two parts OpenSCAD, one part Inkscape. Instead of OpenSCAD's Constructive Solid Geometry, this will implement Constructive Planar Geometry
+I searched high and low for a simple 2D drawing app for designing for a laser cutter. I wanted precise layouts, boolean operations on paths, and parametric designs. Since I couldn't find one I liked, I decided to try to make my own. My intended recipe here is two parts OpenSCAD, one part Inkscape. Instead of OpenSCAD's Constructive Solid Geometry, this will implement Constructive Planar Geometry.
+
 Planned features:
 - Support for all SVG shapes
 - All shapes can be part of boolean gemetry operations like Union, Intersect, Difference.
