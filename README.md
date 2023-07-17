@@ -1,4 +1,4 @@
-# WebCAD
+# PlanarCAD
 Simple web-based drawing for 2D design
 
 ## Why?
