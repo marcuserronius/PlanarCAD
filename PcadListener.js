@@ -1,6 +1,7 @@
 // Generated from Pcad.g4 by ANTLR 4.13.0
 // jshint ignore: start
-import antlr4 from 'antlr4';
+let antlr4;
+import('antlr4').then(m=>{antlr4=m});
 
 // This class defines a complete listener for a parse tree produced by PcadParser.
 export default class PcadListener extends antlr4.tree.ParseTreeListener {
@@ -20,6 +21,7 @@ export default class PcadListener extends antlr4.tree.ParseTreeListener {
 
 	// Exit a parse tree produced by PcadParser#statement.
 	exitStatement(ctx) {
+		console.log(ctx.children);
 	}
 
 
