@@ -28,4 +28,4 @@ Planned features, in order of likelyhood or distance in future:
 - Simple functions
 - Custom shape definitions, like OpenSCAD modules
 
-[x](planarcad.html)
+[x](PlanarCAD.html)
