@@ -3,7 +3,7 @@
 **/
 
 
-import antlr4 from 'antlr4';
+import antlr4 from 'https://cdn.jsdelivr.net/npm/antlr4@4.13.0/dist/antlr4.web.min.js';
 import MyGrammarLexer from './MyGrammarLexer.js';
 import MyGrammarParser from './MyGrammarParser.js';
 import MyGrammarListener from './MyGrammarListener.js';
