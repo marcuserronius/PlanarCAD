@@ -4,9 +4,9 @@
 
 
 import antlr4 from 'https://cdn.jsdelivr.net/npm/antlr4@4.13.0/dist/antlr4.web.min.js';
-import MyGrammarLexer from './MyGrammarLexer.js';
-import MyGrammarParser from './MyGrammarParser.js';
-import MyGrammarListener from './MyGrammarListener.js';
+import MyGrammarLexer from './PcadLexer.js';
+import MyGrammarParser from './PcadParser.js';
+import MyGrammarListener from './PcadListener.js';
 
 const input = `
 union(){
